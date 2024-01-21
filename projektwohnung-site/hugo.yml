@@ -1,0 +1,25 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Projektwohnungen Petersen
+
+defaultContentLanguage: de
+defaultContentLanguageInSubdir: true
+languages:
+  de:
+    disabled: false
+    languageCode: de-DE
+    languageDirection: ltr
+    languageName: Deutsch
+    params:
+      subtitle: Ihr Zuhause auf Zeit
+    title: Projektwohnungen Petersen
+    weight: 1
+  en:
+    disabled: false
+    languageCode: en-US
+    languageDirection: ltr
+    languageName: English
+    params:
+      subtitle: Your home away from home
+    title: Serviced Apartments Petersen
+    weight: 2

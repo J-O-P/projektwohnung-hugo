@@ -1,0 +1,20 @@
+{{ define "page" }}
+
+<div class="container">
+  <div class="row">
+    Starting page here{{ range .Pages }}
+
+    <div>
+      <a href="#">
+        <div class="wide-container">
+          <h5 class="center">{{ .Title}}</h5>
+          <p>{{ .Content }}</p>
+        </div>
+      </a>
+    </div>
+
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}
