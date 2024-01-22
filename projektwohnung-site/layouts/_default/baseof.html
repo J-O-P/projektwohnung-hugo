@@ -7,7 +7,8 @@
     {{ if .IsHome }}
       <!-- Homepage -->
       <title>
-        {{ .Site.Params.description }} - {{ .Site.Params.mydomain }}
+        {{ .Site.Params.description }} -
+        {{ .Site.Params.mydomain }}
       </title>
       {{ if .Site.Params.description }}
         <meta name="description" content="{{ .Site.Params.description }}" />
@@ -37,7 +38,8 @@
 
     <title>
       {{ or .Title .Site.Title }}{{ if ne .Kind "home" }}
-        | {{ .CurrentSection.Title }}
+        |
+        {{ .CurrentSection.Title }}
       {{ end }}
     </title>
 
@@ -61,10 +63,11 @@
   </head>
 
   <body>
-    {{ partial "header" . }} {{ block "page" . }}{{ end }}
-    {{ partial "footer"
-      .
-    }}
+    {{ partial "header" . }}
+    {{ block "page" . }}
+    {{ end }}
+    {{ partial "footer" . }}
+
 
     <!--  Scripts -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

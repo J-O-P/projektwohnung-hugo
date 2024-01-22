@@ -1,0 +1,34 @@
+{{ define "page" }}
+  <section id="newsletter">
+    <div class="container">
+      <h1>Subscribe to our Newsletter</h1>
+      <form>
+        <input type="email" placeholder="Enter email" />
+        <button type="submit" class="button_1"><span>Subscribe</span></button>
+      </form>
+    </div>
+  </section>
+
+  <div class="container">
+    <section id="apartments">
+      <div id="apt-col">
+        {{ range .Pages }}
+          <article>
+            <h1>
+              {{ .Title }}
+            </h1>
+            <p>{{ .Content }}</p>
+          </article>
+        {{ end }}
+      </div>
+
+      <aside id="sidebar" class="dark">
+        <h3>das ist der h3 in aside</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+          beatae delectus vel eius!
+        </p>
+      </aside>
+    </section>
+  </div>
+{{ end }}

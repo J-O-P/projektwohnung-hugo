@@ -1,21 +1,33 @@
 {{ define "page" }}
-  <div class="container">
-    <div class="row">
-      Starting block page is here <br />
-      Title:
-      {{ .Title }}
-      {{ range .RegularPages }}
-        <div>
-          Page:<br />
-          <a href="/">
-            <h5 class="center">
-              {{ .Title }}
-            </h5>
-            <p>{{ .Content }}</p>
-          </a>
+  <section id="intro">
+    <div class="container">
+      <h1>Welcome to Projektwohnungen Petersen</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero
+        voluptas eos qui hic rem blanditiis! Nostrum similique magnam repellat.
+      </p>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="container">
+      <h1>Subscribe to our Newsletter</h1>
+      <form>
+        <input type="email" placeholder="Enter email" />
+        <button type="submit" class="button_1"><span>Subscribe</span></button>
+      </form>
+    </div>
+  </section>
+
+  <section id="boxes">
+    <div class="container">
+      {{ range .Pages }}
+        <div class="box">
+          <img src="{{ .Params.imgurl }}" />
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Content }}</p>
         </div>
       {{ end }}
     </div>
-  </div>
-  Ending block page is here <br />
+  </section>
 {{ end }}
