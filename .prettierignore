@@ -1,0 +1,6 @@
+# node modules and config files are ignore 
+# ignore hugo generated files
+/public/**
+/resources/**
+/projektwohnung-site/public/**
+/projektwohnung-site/resources/**
