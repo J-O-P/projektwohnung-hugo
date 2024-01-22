@@ -1,20 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{- .Site.Language.Lang -}}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{ if .IsHome }}
-    <!-- Homepage -->
-    <title>{{ .Site.Params.description }} - {{ .Site.Params.mydomain }}</title>
-             {{ if .Site.Params.description }}
-    <meta name="description" content="{{ .Site.Params.description }}" />
-    {{end}} {{ else }}
-    <!-- Any other Page -->
-    <title>{{ .Title }} - {{ .Site.Params.mydomain }}</title>
-    {{if .Description }}
-    <meta name="description" content="{{ .Description }}" />
-    {{ end }} {{ end }}
+      <!-- Homepage -->
+      <title>
+        {{ .Site.Params.description }} - {{ .Site.Params.mydomain }}
+      </title>
+      {{ if .Site.Params.description }}
+        <meta name="description" content="{{ .Site.Params.description }}" />
+      {{ end }}
+    {{ else }}
+      <!-- Any other Page -->
+      <title>{{ .Title }} - {{ .Site.Params.mydomain }}</title>
+      {{ if .Description }}
+        <meta name="description" content="{{ .Description }}" />
+      {{ end }}
+
+    {{ end }}
+
 
     <meta
       name="description"
@@ -30,8 +36,9 @@
     />
 
     <title>
-      {{ or .Title .Site.Title }}{{ if ne .Kind "home" }} | {{
-      .CurrentSection.Title }}{{ end }}
+      {{ or .Title .Site.Title }}{{ if ne .Kind "home" }}
+        | {{ .CurrentSection.Title }}
+      {{ end }}
     </title>
 
     <link href="/css/style.css" type="text/css" rel="stylesheet" />
@@ -54,8 +61,10 @@
   </head>
 
   <body>
-    {{ partial "header" . }} {{ block "page" . }} {{ end }} {{ partial "footer"
-    . }}
+    {{ partial "header" . }} {{ block "page" . }}{{ end }}
+    {{ partial "footer"
+      .
+    }}
 
     <!--  Scripts -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

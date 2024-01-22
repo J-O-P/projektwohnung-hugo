@@ -1,10 +1,13 @@
 {{ define "page" }}
   <div class="container">
     <div class="row">
-      Starting page here
-      {{ range .Pages }}
+      Starting block page is here <br />
+      Title:
+      {{ .Title }}
+      {{ range .RegularPages }}
         <div>
-          <a href="#">
+          Page:<br />
+          <a href="/">
             <h5 class="center">
               {{ .Title }}
             </h5>
@@ -14,4 +17,5 @@
       {{ end }}
     </div>
   </div>
+  Ending block page is here <br />
 {{ end }}
