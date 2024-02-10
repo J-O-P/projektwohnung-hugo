@@ -1,0 +1,12 @@
+Noch nicht erledigt:
+
+Thema SEO 
+  - in baseURL.html
+   - meta robots
+   - Tags
+   - SEO Tipp für link rel=“alternate”
+   - meta keywords
+
+Thema Responsiveness
+   - MQ & Sidepanel Menu
+   

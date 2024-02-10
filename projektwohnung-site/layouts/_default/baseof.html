@@ -7,10 +7,10 @@
     {{ if .IsHome }}
       <!-- Homepage -->
       <title>
-        {{ .Site.Params.description }} -
-        {{ .Site.Params.mydomain }}
+        {{ .Site.Params.Description }} -
+        {{ .Site.BaseURL }}
       </title>
-      {{ if .Site.Params.description }}
+      {{ if .Site.Params.Description }}
         <meta name="description" content="{{ .Site.Params.description }}" />
       {{ end }}
     {{ else }}
@@ -24,26 +24,24 @@
 
 
     <meta
-      name="description"
-      content="Serviced Apartments und Projektwohnungen in Bern und Frankfurt"
-    />
-    <meta
-      name="keywords"
-      content="Serviced Apartments Möbliert möblierte Projekt wohnungen Bern Frankfurt Wohnen auf Zeit"
-    />
-    <meta
       name="author"
       content="Projektwohnungen Barbara Petersen und Jens-Ole Petersen"
     />
 
-    <title>
-      {{ or .Title .Site.Title }}{{ if ne .Kind "home" }}
-        |
-        {{ .CurrentSection.Title }}
-      {{ end }}
-    </title>
+    <!-- old local css  -->
+    <!-- <link href="/css/style.css" type="text/css" rel="stylesheet" /> -->
 
-    <link href="/css/style.css" type="text/css" rel="stylesheet" />
+    <!-- styles from sass transpiler -->
+    {{ $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
+    {{ with resources.Get "scss/main.scss" | toCSS $opts | minify | fingerprint }}
+      <link
+        rel="stylesheet"
+        href="{{ .RelPermalink }}"
+        integrity="{{ .Data.Integrity }}"
+        crossorigin="anonymous"
+      />
+    {{ end }}
+
 
     <!-- <link
       rel="icon"
@@ -64,6 +62,7 @@
 
   <body>
     {{ partial "header" . }}
+    {{ partial "topnav" . }}
     {{ block "page" . }}
     {{ end }}
     {{ partial "footer" . }}

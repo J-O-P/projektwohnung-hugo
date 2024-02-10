@@ -1,5 +1,5 @@
 ---
-title: 'Box 1 Title'
+title: 'Kiste 1 Titel'
 date: 2024-01-21T23:35:37+01:00
 draft: false
 weight: 100

@@ -2,7 +2,6 @@ baseURL: https://example.org/
 languageCode: en-us
 title: 'Projektwohnungen Petersen'
 defaultContentLanguage: de
-defaultContentLanguageInSubdir: false
 languages:
   de:
     languageName: Deutsch
@@ -11,7 +10,21 @@ languages:
     weight: 1
     params:
       subtitle: 'Ihr Zuhause auf Zeit'
-      description: 'Serviced Apartments und Projektwohnungen in Bern und Frankfurt'
+      description: 'Projektwohnungen in Bern und Frankfurt am Main'
+    menu:
+      main:
+        - url: /
+          name: Home
+          weight: 1
+        - url: /apartments/
+          name: Apartments
+          weight: 2
+        - url: /pricing/
+          name: Preise & Verfügbarkeit
+          weight: 3
+        - url: /contact/
+          name: Kontakt
+          weight: 4
   en:
     languageName: English
     languageCode: en-US
@@ -19,4 +32,18 @@ languages:
     weight: 2
     params:
       subtitle: 'Your home away from home'
-      description: 'Serviced Apartments und Projektwohnungen in Bern und Frankfurt'
+      description: 'Serviced Apartments in Berne und Frankfurt a.M.'
+    menu:
+      main:
+        - url: /
+          name: Home
+          weight: 1
+        - url: /apartments/
+          name: Apartments
+          weight: 2
+        - url: /pricing/
+          name: Pricing & Availability
+          weight: 3
+        - url: /contact/
+          name: Contact
+          weight: 4
