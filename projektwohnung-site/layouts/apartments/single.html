@@ -93,18 +93,20 @@
       <div class="contentbox">
         <p class="zwischentitel">{{ T "titleLocation" }}</p>
         <div id="mapx"></div>
-        <p>Adresse</p>
-        <a href="https://maps.app.goo.gl/yiNCr37fh5UPebut7" target="_blank">
+        <p>
+          <u>Adresse</u><br />
           Eschersheimer Landstrasse 48 <br />
           60322 Frankfurt am Main
-        </a>
-        <p>Anfahrt mit dem PKW</p>
-        <p>
-          Über den Autobahnanschluss Miquelallee erreichen Sie via Hansaallee
-          direkt die Eschersheimer Landstrasse.
         </p>
-        <p>Öffentlicher Verkehr</p>
-        <p>Nur 1 Minute von der U-Bahn Station Grüneburgweg gelegen</p>
+        <p>
+          <u>Anfahrt</u><br />
+
+          Über den Autobahnanschluss Miquelallee und die Hansaallee erreichen
+          Sie direkt die Eschersheimer Landstrasse.
+        </p>
+        <p>
+          Die Wohnung ist direkt an der U-Bahn Station Grüneburgweg gelegen.
+        </p>
       </div>
     </div>
   </div>
@@ -147,5 +149,10 @@
         : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
     })({ key: "AIzaSyDvmUa17dTdGBiSjKHn9ZkbGgzlWjsPdRY", v: "weekly" });
   </script>
+  <!-- Load and Show Google Maps -->
   <script src="/js/googlemaps.js"></script>
+  <script>
+    const position = { lat: 50.121368182791876, lng: 8.675876530600387 };
+    initMap(position, "mapx");
+  </script>
 {{ end }}
