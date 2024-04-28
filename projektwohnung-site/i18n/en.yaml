@@ -1,2 +1,24 @@
 allphotos:
   other: 'All photos'
+titleDesciption:
+  other: 'Description'
+titleFloorplan:
+  other: 'Floor Plan'
+titleServices:
+  other: 'Services'
+titleLocation:
+  other: 'Location'
+titleAvailability:
+  other: 'Availability'
+bedroomsWithCount:
+  one: '{{ . }} bedroom'
+  other: '{{ . }} bedrooms'
+bedsWithCount:
+  one: '{{ . }} bed'
+  other: '{{ . }} beds'
+bathroomsWithCount:
+  one: '{{ . }} bathroom'
+  other: '{{ . }} bathrooms'
+maxnumberofguestsWithCount:
+  one: '{{ . }} guest'
+  other: '{{ . }} guests'

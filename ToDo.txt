@@ -9,4 +9,10 @@ Thema SEO
 
 Thema Responsiveness
    - MQ & Sidepanel Menu
+
+
+Overlay to indicate total number of pictures
+
+
+
    

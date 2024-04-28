@@ -1,2 +1,22 @@
 allphotos:
   other: 'Alle Fotos'
+titleDesciption:
+  other: 'Beschreibung'
+titleFloorplan:
+  other: 'Grundriss'
+titleServices:
+  other: 'Dienstleistungen'
+titleLocation:
+  other: 'Standort'
+titleAvailability:
+  other: 'Verfügbarkeit'
+bedroomsWithCount:
+  other: '{{ . }} Schlafzimmer'
+bedsWithCount:
+  one: '{{ . }} Bett'
+  other: '{{ . }} Betten'
+bathroomsWithCount:
+  other: '{{ . }} Badezimmer'
+maxnumberofguestsWithCount:
+  one: '{{ . }} Gast'
+  other: '{{ . }} Gäste'

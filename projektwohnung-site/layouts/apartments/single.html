@@ -1,45 +1,110 @@
 {{ define "page" }}
-  <!-- <div class="my-12">
-    {{ $firstImage := index (.Page.Resources.Match "images/*.jpg") 0 }}
-    <img src="{{ $firstImage.RelPermalink }}" alt="" class="w-96" />
-  </div> -->
-
-  <div class="container">
-    <div class="imagegrid-container">
-      {{ range first 7 (.Page.Resources.ByType "image") }}
-        <div class="imagegrid-item">
-          <!-- <p>Test TEXT</p> -->
+  <!-- *** At the top: Image-Grid *** -->
+  <div class="container imagegrid-container">
+    {{ range first 7 (.Page.Resources.Match "images/*") }}
+      <div class="imagegrid-item">
+        <a href="{{ .RelPermalink }}" data-lightbox="aptpics">
           <img src="{{ .RelPermalink }}" alt="" />
-        </div>
-      {{ end }}
-      <div class="imagegrid-overlay">
-        {{ T "allphotos" }}
+        </a>
+      </div>
+    {{ end }}
+    <!-- <div class="imagegrid-overlay">
+       {{ T "allphotos" }}
+    </div> -->
+  </div>
+  {{ range after 7 (.Page.Resources.Match "images/*") }}
+    <div hidden>
+      <a href="{{ .RelPermalink }}" data-lightbox="aptpics">
+        <img src="{{ .RelPermalink }}" alt="" />
+      </a>
+    </div>
+  {{ end }}
+
+
+  <!-- *** Description-Grid (2-columns) *** -->
+  <div class="container descriptiongrid-container">
+    <!-- *** Description-Grid (First column) *** -->
+    <div class="ersteSpalte">
+      <!-- *** Intro Section *** -->
+      <p class="uebertitel">
+        {{ .Params.aptType }} in {{ .Params.city }},
+        {{ .Params.quarter }}
+      </p>
+      <p class="apartmenttitel">{{ .Params.title }}</p>
+      <p class="untertitel">
+        {{ T "bedroomsWithCount" .Params.bedrooms }} &bull;
+        {{ T "bedsWithCount" .Params.numberofbeds }} &bull;
+        {{ T "bathroomsWithCount" .Params.numberofbathrooms }} &bull;
+        {{ T "maxnumberofguestsWithCount" .Params.maxnumberofguests }} &bull;
+        {{ .Params.sqm }} &#13217; &bull;
+        {{ .Params.floor }}
+      </p>
+      <hr />
+
+      <!-- *** Description Section *** -->
+      <p class="zwischentitel">{{ T "titleDesciption" }}</p>
+      <p>
+        {{ .Content }}
+      </p>
+      <hr />
+
+      <!-- *** Floor Plan Section *** -->
+      <p class="zwischentitel">{{ T "titleFloorplan" }}</p>
+      <div>
+        {{ range first 1 (.Page.Resources.Match "grundriss*") }}
+          <div class="image-grundriss">
+            <!-- <img id="myImg" src="{{ .RelPermalink }}" alt="alttext" /> -->
+            <a
+              href="{{ .RelPermalink }}"
+              data-lightbox="grundriss-a"
+              data-alt="grundriss-1"
+            >
+              <img src="{{ .RelPermalink }}" alt="Grundriss" />
+            </a>
+          </div>
+        {{ end }}
+      </div>
+      <hr />
+
+      <!-- *** Services Section *** -->
+      <p class="zwischentitel">{{ T "titleServices" }}</p>
+      <div class="servicesgrid-container">
+        {{ range.Page.Resources.Match "services/*.md" }}
+          <div class="servicesitems-container">
+            <span class="material-symbols-outlined"
+              >{{ .Params.materialicon }}</span
+            >
+            <div class="description">
+              <span class="header">{{ .Title }}</span>
+              <span class="content">{{ .Content }}</span>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+    <!-- *** Description-Grid (Second column) *** -->
+    <div class="zweiteSpalte">
+      <!-- *** Availability Section *** -->
+      <div class="contentbox">
+        <p class="zwischentitel">{{ T "titleAvailability" }}</p>
+      </div>
+
+      <!-- *** Address Section *** -->
+      <div class="contentbox">
+        <p class="zwischentitel">{{ T "titleLocation" }}</p>
+        <p>Adresse</p>
+        <a href="https://maps.app.goo.gl/yiNCr37fh5UPebut7" target="_blank">
+          Eschersheimer Landstrasse 48 <br />
+          60322 Frankfurt am Main
+        </a>
+        <p>Anfahrt mit dem PKW</p>
+        <p>
+          Über den Autobahnanschluss Miquelallee erreichen Sie via Hansaallee
+          direkt die Eschersheimer Landstrasse.
+        </p>
+        <p>Öffentlicher Verkehr</p>
+        <p>Nur 1 Minute von der U-Bahn Station Grüneburgweg gelegen</p>
       </div>
     </div>
   </div>
-
-  <!-- <h3>OLD START Flexbox</h3>
-  <div class="container">
-    <ul class="image-gallery">
-      {{ range (.Page.Resources.ByType "image") }}
-    <li>
-      <img src="{{ .RelPermalink }}" alt="" />
-      <div class="overlay"><span>Image title</span></div>
-    </li>
-  {{ end }}
-    </ul>
-  </div>
-
-  <h3>OLD START Single default</h3>
-  <div style="margin:25px;">
-    <h1>{{ .Title }}</h1>
-    <h2>Hi jop single</h2>
-    <div style="color:grey; font-size:16px;">
-      {{ dateFormat "Monday, Jan 2, 2006" .Date }}
-    </div>
-    <div style="color:grey; font-size:16px;">
-      {{ if .Params.author }}Author: {{ .Params.Author }}{{ end }}
-    </div>
-    <div style="font-size:18px;">{{ .Content }}</div>
-  </div> -->
 {{ end }}
