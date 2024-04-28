@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Set the title -->
     {{ if .IsHome }}
       <!-- Homepage -->
       <title>
@@ -23,6 +24,7 @@
     {{ end }}
 
 
+    <!-- Meta Info -->
     <meta
       name="author"
       content="Projektwohnungen Barbara Petersen und Jens-Ole Petersen"
@@ -39,11 +41,6 @@
       rel="stylesheet"
     />
 
-    <!-- <script src="/js/modals.js"></script> -->
-
-    <!-- old local css  -->
-    <!-- <link href="/css/style.css" type="text/css" rel="stylesheet" /> -->
-
     <!-- styles from sass transpiler -->
     {{ $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
     {{ with resources.Get "scss/main.scss" | toCSS $opts | minify | fingerprint }}
@@ -56,21 +53,11 @@
     {{ end }}
 
 
-    <!-- <link
-      rel="icon"
-      type="image/x-icon"
-      href="/icons/favicon_96_96_apland.ico"
-    /> -->
-
-    <!-- <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css"
-      type="text/css"
-      rel="stylesheet"
-    /> -->
+    <!-- loads the Favicon  -->
+    <link rel="icon" type="image/x-icon" href="/favicon_192_192.png" />
+    <link rel="shortcut icon" type="image/png" href="/favicon_192_192.png" />
+    <link rel="shortcut icon" sizes="192x192" href="/favicon_192_192.png" />
+    <link rel="apple-touch-icon" href="/favicon_192_192.png" />
   </head>
 
   <!-- <body onload="showAlert()"> -->
@@ -83,12 +70,6 @@
 
 
     <!--  Scripts -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="/js/site.js"></script> -->
-
-    <!-- <script type="text/javascript" src="/js/lightbox.js"></script>
-    <link rel="stylesheet" href="/css/lightbox.css" /> -->
-
     <script src="/js/lightbox2/lightbox-plus-jquery.min.js"></script>
   </body>
 </html>
