@@ -448,6 +448,30 @@ footer {
   text-align: center;
 }
 
+.contact_button {
+  border: none;
+  color: white;
+  background-color: #04aa6d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: relative;
+  left: 25%;
+}
+
+// .button1 {background-color: #04AA6D;} /* Green */
+// .button2 {background-color: #008CBA;} /* Blue */
+
+#mapx {
+  height: 300px; /* The height is 400 pixels */
+  width: 100%; /* The width is the width of the web page */
+}
+
 /* Media Queries */
 
 @media (max-width: 768px) {
@@ -471,19 +495,4 @@ footer {
   #intro h1 {
     margin-top: 20px;
   }
-
-  #newsletter button {
-    display: block;
-    width: 100%;
-  }
-
-  #newsletter form input[type='email'] {
-    width: 100%;
-    margin-bottom: 6px;
-  }
-}
-
-#mapx {
-  height: 400px; /* The height is 400 pixels */
-  width: 100%; /* The width is the width of the web page */
 }

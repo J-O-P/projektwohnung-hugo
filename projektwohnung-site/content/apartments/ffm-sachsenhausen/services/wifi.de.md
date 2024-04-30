@@ -6,4 +6,4 @@ weight: 400
 materialicon: wifi
 ---
 
-Internet access mit 50 MBit/s downloadspeed und Wifi access is available.
+Internetzugang mit 50 MBit/s Downloadgeschwindigkeit und Wifi Zugang ist vorhanden.

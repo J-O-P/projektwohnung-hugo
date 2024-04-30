@@ -34,7 +34,7 @@
       <p class="untertitel">
         {{ T "bedroomsWithCount" .Params.bedrooms }} &bull;
         {{ T "bedsWithCount" .Params.numberofbeds }} &bull;
-        {{ T "bathroomsWithCount" .Params.numberofbathrooms }} &bull;
+        {{ T "bathroomsWithCount" .Params.numberofbathrooms }} &bull; max.
         {{ T "maxnumberofguestsWithCount" .Params.maxnumberofguests }} &bull;
         {{ .Params.sqm }} &#13217; &bull;
         {{ .Params.floor }}
@@ -82,33 +82,33 @@
         {{ end }}
       </div>
     </div>
+
     <!-- *** Description-Grid (Second column) *** -->
     <div class="zweiteSpalte">
-      <!-- *** Availability Section *** -->
-      <div class="contentbox">
-        <p class="zwischentitel">{{ T "titleAvailability" }}</p>
-      </div>
-
       <!-- *** Address Section *** -->
       <div class="contentbox">
         <p class="zwischentitel">{{ T "titleLocation" }}</p>
         <div id="mapx"></div>
-        <p>
-          <u>Adresse</u><br />
-          Eschersheimer Landstrasse 48 <br />
-          60322 Frankfurt am Main
-        </p>
-        <p>
-          <u>Anfahrt</u><br />
-
-          Über den Autobahnanschluss Miquelallee und die Hansaallee erreichen
-          Sie direkt die Eschersheimer Landstrasse.
-        </p>
-        <p>
-          Die Wohnung ist direkt an der U-Bahn Station Grüneburgweg gelegen.
-        </p>
+        {{ range.Page.Resources.Match "location_*.md" }}
+          <p>
+            <u>{{ .Title }}</u>
+            {{ .Content }}
+          </p>
+        {{ end }}
       </div>
+
+      <!-- *** Availability Section *** -->
+      <div class="contentbox">
+        <p class="zwischentitel">{{ T "titleAvailability" }}</p>
+        {{ range.Page.Resources.Match "availability_*.md" }}
+          <p>
+            {{ .Content }}
+          </p>
+        {{ end }}
+      </div>
+      <a href="/"> <button class="contact_button">Contact us</button></a>
     </div>
+    <p><a href="/">Back to apartment list</a></p>
   </div>
 
   <!-- Bootstrap-Ladeprogramm für Google Maps API -->
@@ -152,7 +152,7 @@
   <!-- Load and Show Google Maps -->
   <script src="/js/googlemaps.js"></script>
   <script>
-    const position = { lat: 50.121368182791876, lng: 8.675876530600387 };
+    const position = { lat: {{ .Params.lat }}, lng: {{ .Params.lng }} };
     initMap(position, "mapx");
   </script>
 {{ end }}
