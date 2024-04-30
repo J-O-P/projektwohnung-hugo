@@ -5,4 +5,4 @@ draft: false
 weight: 200
 ---
 
-Über den Autobahnanschluss Offenbach Kaiserlai und die Gerbermühlstrasse erreichen Sie direkt das Deutschherrnviertel. Eine Bushaltestelle ist direkt in der Nähe, und die S-Bahn Station Lokalbahnhof ist ist wenigen Minuten zu Fuss zu erreichen.
+Über den Autobahnanschluss Offenbach Kaiserlei und die Gerbermühlstrasse erreichen Sie direkt das Deutschherrnviertel. Eine Bushaltestelle ist direkt in der Nähe, und die S-Bahn Station Lokalbahnhof ist ist wenigen Minuten zu Fuss zu erreichen.

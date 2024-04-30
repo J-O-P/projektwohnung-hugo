@@ -20,6 +20,6 @@ weight: 200
 
 Willkommen in Ihrer Oase der Ruhe in Frankfurt am Main! Diese charmante Wohnung bietet nicht nur eine zentrale Lage, sondern auch eine Atmosphäre der Entspannung und Gemütlichkeit. Genießen Sie den Blick auf den begrünten Innenhof und lassen Sie den Alltagsstress hinter sich.
 
-Die Wohnung ist komplett möbliert und eingerichtet, sodass Sie sich sofort wie zu Hause fühlen können. Dank der verkehrsgünstigen Lage zur Autobahn (OF Kaiserlai) und zum öffentlichen Verkehr erreichen Sie schnell und bequem alle wichtigen Ziele.
+Die Wohnung ist komplett möbliert und eingerichtet, sodass Sie sich sofort wie zu Hause fühlen können. Dank der verkehrsgünstigen Lage zur Autobahn und zum öffentlichen Verkehr erreichen Sie schnell und bequem alle wichtigen Ziele.
 
 Entdecken Sie die perfekte Kombination aus urbanem Lebensstil und erholsamer Wohnqualität in Frankfurt!

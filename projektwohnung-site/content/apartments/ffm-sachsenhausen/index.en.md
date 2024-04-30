@@ -20,6 +20,6 @@ weight: 200
 
 Welcome to your oasis of tranquility in Frankfurt am Main! This charming apartment not only offers a central location but also an atmosphere of relaxation and coziness. Enjoy the view of the green courtyard and leave the everyday stress behind.
 
-The apartment is fully furnished and equipped, so you can feel right at home immediately. Thanks to its convenient location to the highway (OF Kaiserlai) and public transportation, you can quickly and easily reach all major destinations.
+The apartment is fully furnished and equipped, so you can feel right at home immediately. Thanks to its convenient location to the highway and public transportation, you can quickly and easily reach all major destinations.
 
 Discover the perfect combination of urban lifestyle and restful living quality in Frankfurt!
