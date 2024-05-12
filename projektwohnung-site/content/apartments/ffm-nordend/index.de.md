@@ -3,6 +3,7 @@ title: 'Komfortable Wohnung in zentraler Lage zur Innenstadt Frankfurt'
 city: 'Frankfurt am Main'
 quarter: 'Nordend'
 aptType: 'Wohnung'
+available: True
 bedrooms: 1
 numberofbeds: 1
 numberofbathrooms: 1

@@ -1,17 +1,16 @@
 {{ define "page" }}
   <section id="intro">
     <div class="container">
-      <h1>Welcome to Projektwohnungen Petersen</h1>
+      <h1>{{ .Title }}</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero
-        voluptas eos qui hic rem blanditiis! Nostrum similique magnam repellat.
+        {{ .Content }}
       </p>
     </div>
   </section>
 
   <section id="newsletter">
     <div class="container">
-      <h1>Subscribe to our Newsletter</h1>
+      <h1>Aktuell verfügbare Wohnungen: Subscribe to our Newsletter</h1>
       <form>
         <input type="email" placeholder="Enter email" />
         <button type="submit" class="button_1"><span>Subscribe</span></button>
@@ -21,11 +20,19 @@
 
   <section id="boxes">
     <div class="container">
-      {{ range .Data.Pages }}
-        <div class="box">
-          <h3>{{ .Title }}</h3>
-          <p>{{ .Content }}</p>
-        </div>
+      {{ with .Site.GetPage "/apartments" }}
+        {{ $availCollection := where .Pages ".Params.available" "eq" true }}
+        {{ if gt ($availCollection |len) 0 }}
+          {{ range $availCollection }}
+            <div class="box">
+              <h3>{{ .Title }}</h3>
+
+              <!-- <p>{{ .Content }}</p> -->
+            </div>
+          {{ end }}
+        {{ else }}
+          <p>Keine Wohnungen verfügbar.</p>
+        {{ end }}
       {{ end }}
     </div>
   </section>

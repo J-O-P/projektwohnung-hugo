@@ -10,8 +10,6 @@ Responsiveness: Single Apartment view to switch in single column on small screen
 
 Imagegrid-Overlay to indicate total number of pictures
 
-Use Hugo image functions to generate defined resoltuion and optimized thumbnails
-See as input: https://christianspecht.de/2020/08/10/creating-an-image-gallery-with-hugo-and-lightbox2/
 
 Dokumentation:
 
