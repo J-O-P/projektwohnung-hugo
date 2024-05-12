@@ -1,0 +1,49 @@
+{{ define "page" }}
+  {{ $imgFiltersSmall := slice
+    images.AutoOrient
+    (images.Process "Fill 180x150 webp")
+  }}
+  <section id="intro-apartments">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      <p>
+        {{ .Content }}
+      </p>
+    </div>
+  </section>
+  <section id="apartmentList">
+    <div class="container">
+      {{ range .Data.Pages }}
+        <div class="apartmentlist-container">
+          <div class="apartmentlist-items">
+            <p class="apartmentlist-text">
+              {{ .Params.aptType }} in {{ .Params.city }},
+              {{ .Params.quarter }}
+            </p>
+            <a href="{{ .Permalink }}">
+              <p class="apartmentlist-title">
+                <b>{{ .Title }}</b>
+              </p>
+            </a>
+            <p class="apartmentlist-text">
+              {{ T "bedroomsWithCount" .Params.bedrooms }} &bull;
+              {{ T "bedsWithCount" .Params.numberofbeds }} &bull;
+              {{ T "bathroomsWithCount" .Params.numberofbathrooms }} &bull; max.
+              {{ T "maxnumberofguestsWithCount" .Params.maxnumberofguests }}
+              &bull; {{ .Params.sqm }} &#13217; &bull;
+              {{ .Params.floor }}
+            </p>
+          </div>
+          <div class="apartmentlist-pics">
+            {{ range first 1 (sort (.Page.Resources.Match "images/*") "Name") }}
+              {{ $imgSmall := .Filter $imgFiltersSmall }}
+              <div>
+                <img src="{{ $imgSmall.RelPermalink }}" alt="" />
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

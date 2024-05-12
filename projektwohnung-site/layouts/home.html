@@ -21,9 +21,8 @@
 
   <section id="boxes">
     <div class="container">
-      {{ range .Site.Pages }}
+      {{ range .Data.Pages }}
         <div class="box">
-          <img src="{{ .Params.imgurl }}" />
           <h3>{{ .Title }}</h3>
           <p>{{ .Content }}</p>
         </div>

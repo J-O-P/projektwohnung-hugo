@@ -10,6 +10,8 @@ titleLocation:
   other: 'Standort'
 titleAvailability:
   other: 'Verfügbarkeit'
+backToApartmentList:
+  other: 'Zurück zur Apartment Liste'
 bedroomsWithCount:
   other: '{{ . }} Schlafzimmer'
 bedsWithCount:

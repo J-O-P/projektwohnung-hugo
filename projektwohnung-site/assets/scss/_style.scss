@@ -63,6 +63,42 @@ hr {
   width: 10%;
 }
 
+/* Apartment List Page */
+.apartmentlist-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid grey;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.apartmentlist-items {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.apartmentlist-pics {
+  width: 180px;
+  height: 150px;
+  margin-left: auto;
+}
+
+.apartmentlist-pics img {
+  width: 100%;
+  height: 100%;
+}
+
+.apartmentlist-title {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 1.4em;
+}
+
+.apartmentlist-text {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 /* Modal */
 /* Style the Image Used to Trigger the Modal */
 // #myImg {

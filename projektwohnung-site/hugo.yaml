@@ -2,6 +2,7 @@ baseURL: https://example.org/
 languageCode: en-us
 title: 'Projektwohnungen Petersen'
 defaultContentLanguage: de
+defaultContentLanguageInSubdir: true
 languages:
   de:
     languageName: Deutsch

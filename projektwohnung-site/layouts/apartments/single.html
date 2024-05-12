@@ -1,10 +1,35 @@
 {{ define "page" }}
+  {{ $imgFiltersSmall := slice
+    images.AutoOrient
+    (images.Process "Fill 600x400 webp")
+  }}
+  {{ $imgFiltersLargeLandscape := slice
+    images.AutoOrient
+    (images.Process "Fit 1200x800 webp")
+  }}
+  {{ $imgFiltersLargePortrait := slice
+    images.AutoOrient
+    (images.Process "Fit 800x1200 webp")
+  }}
+
+
   <!-- *** At the top: Image-Grid *** -->
   <div class="container imagegrid-container">
-    {{ range first 7 (.Page.Resources.Match "images/*") }}
+    {{ range first 7 (sort (.Page.Resources.Match "images/*") "Name") }}
+
+      {{ $imgSmall := .Filter $imgFiltersSmall }}
+      {{ $orientation := 1 }}
+      {{ with .Exif }}
+        {{ $orientation = .Tags.Orientation }}
+      {{ end }}
+      {{ $imgLarge := cond (gt $orientation 4) (.Filter $imgFiltersLargePortrait)
+        (.Filter $imgFiltersLargeLandscape)
+      }}
+
+
       <div class="imagegrid-item">
-        <a href="{{ .RelPermalink }}" data-lightbox="aptpics">
-          <img src="{{ .RelPermalink }}" alt="" />
+        <a href="{{ $imgLarge.RelPermalink }}" data-lightbox="aptpics">
+          <img src="{{ $imgSmall.RelPermalink }}" alt="" />
         </a>
       </div>
     {{ end }}
@@ -13,9 +38,20 @@
     </div> -->
   </div>
   {{ range after 7 (.Page.Resources.Match "images/*") }}
+
+    {{ $imgSmall := .Filter $imgFiltersSmall }}
+    {{ $orientation := 1 }}
+    {{ with .Exif }}
+      {{ $orientation = .Tags.Orientation }}
+    {{ end }}
+    {{ $imgLarge := cond (gt $orientation 4) (.Filter $imgFiltersLargePortrait)
+      (.Filter $imgFiltersLargeLandscape)
+    }}
+
+
     <div hidden>
-      <a href="{{ .RelPermalink }}" data-lightbox="aptpics">
-        <img src="{{ .RelPermalink }}" alt="" />
+      <a href="{{ $imgLarge.RelPermalink }}" data-lightbox="aptpics">
+        <img src="{{ $imgSmall.RelPermalink }}" alt="" />
       </a>
     </div>
   {{ end }}
@@ -52,14 +88,25 @@
       <p class="zwischentitel">{{ T "titleFloorplan" }}</p>
       <div>
         {{ range first 1 (.Page.Resources.Match "grundriss*") }}
+
+          {{ $imgSmall := .Filter $imgFiltersSmall }}
+          {{ $orientation := 1 }}
+          {{ with .Exif }}
+            {{ $orientation = .Tags.Orientation }}
+          {{ end }}
+          {{ $imgLarge := cond (gt $orientation 4) (.Filter $imgFiltersLargePortrait)
+            (.Filter $imgFiltersLargeLandscape)
+          }}
+
+
           <div class="image-grundriss">
             <!-- <img id="myImg" src="{{ .RelPermalink }}" alt="alttext" /> -->
             <a
-              href="{{ .RelPermalink }}"
+              href="{{ $imgLarge.RelPermalink }}"
               data-lightbox="grundriss-a"
               data-alt="grundriss-1"
             >
-              <img src="{{ .RelPermalink }}" alt="Grundriss" />
+              <img src="{{ $imgSmall.RelPermalink }}" alt="Grundriss" />
             </a>
           </div>
         {{ end }}
@@ -108,7 +155,11 @@
       </div>
       <a href="/"> <button class="contact_button">Contact us</button></a>
     </div>
-    <p><a href="/">Back to apartment list</a></p>
+    <p>
+      <a href="/{{ .Language.Lang }}/apartments"
+        >{{ T "backToApartmentList" }}</a
+      >
+    </p>
   </div>
 
   <!-- Bootstrap-Ladeprogramm für Google Maps API -->
