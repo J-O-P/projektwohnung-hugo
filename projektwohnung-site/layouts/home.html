@@ -6,9 +6,34 @@
         {{ .Content }}
       </p>
     </div>
+
+    <div class="container">
+      {{ with .Site.GetPage "/homepageCards" }}
+        <div class="cardGrid-container">
+          {{ range .Data.Pages }}
+            <div class="cardGrid-card">
+              <!-- <p>imgGoesHere: {{ .Params.imgurl }}</p> -->
+              {{ with .Resources.GetMatch "*.jpg" }}
+                <img
+                  src="{{ .RelPermalink }}"
+                  alt="Avatar"
+                  style="width:100%"
+                />
+              {{ end }}
+              <div class="cardGrid-text">
+                <h4>{{ .Title }}</h4>
+                <p>{{ .Content }}</p>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+
+    <br />
   </section>
 
-  <section id="newsletter">
+  <!-- <section id="newsletter">
     <div class="container">
       <h1>Aktuell verfügbare Wohnungen: Subscribe to our Newsletter</h1>
       <form>
@@ -16,19 +41,16 @@
         <button type="submit" class="button_1"><span>Subscribe</span></button>
       </form>
     </div>
-  </section>
+  </section> -->
 
-  <section id="boxes">
+  <section id="FreeApartmentList">
     <div class="container">
+      <h2>Aktuell verfügbare Wohnungen</h2>
       {{ with .Site.GetPage "/apartments" }}
         {{ $availCollection := where .Pages ".Params.available" "eq" true }}
         {{ if gt ($availCollection |len) 0 }}
           {{ range $availCollection }}
-            <div class="box">
-              <h3>{{ .Title }}</h3>
-
-              <!-- <p>{{ .Content }}</p> -->
-            </div>
+            {{ partial "apartmentListItem" . }}
           {{ end }}
         {{ else }}
           <p>Keine Wohnungen verfügbar.</p>

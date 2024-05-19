@@ -5,4 +5,4 @@ draft: false
 imgurl: 'images/Wozi1.jpg'
 ---
 
-Wir haben folgende Wohnungen im Angebot:
+xyz
