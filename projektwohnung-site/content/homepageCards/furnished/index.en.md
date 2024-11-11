@@ -1,5 +1,5 @@
 ---
-title: 'Modern Furnishings and Fully Equipped'
+title: 'Modern furnishings and fully equipped'
 date: 2024-02-03T09:32:32+01:00
 draft: false
 imgurl: 'furnished.jpg'

@@ -22,3 +22,7 @@ bathroomsWithCount:
 maxnumberofguestsWithCount:
   one: '{{ . }} Gast'
   other: '{{ . }} Gäste'
+availableApartments:
+  other: 'Aktuell verfügbare Wohnungen'
+noApartmentsAvailable:
+  other: 'Keine Wohnungen verfügbar.'

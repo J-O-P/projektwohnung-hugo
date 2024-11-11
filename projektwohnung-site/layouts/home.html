@@ -7,6 +7,7 @@
       </p>
     </div>
 
+    <!-- Homepage Cards -->
     <div class="container">
       {{ with .Site.GetPage "/homepageCards" }}
         <div class="cardGrid-container">
@@ -14,11 +15,9 @@
             <div class="cardGrid-card">
               <!-- <p>imgGoesHere: {{ .Params.imgurl }}</p> -->
               {{ with .Resources.GetMatch "*.jpg" }}
-                <img
-                  src="{{ .RelPermalink }}"
-                  alt="Avatar"
-                  style="width:100%"
-                />
+                {{ with .Fill "500x200" }}
+                  <img src="{{ .RelPermalink }}" style="width: 100%" />
+                {{ end }}
               {{ end }}
               <div class="cardGrid-text">
                 <h4>{{ .Title }}</h4>
@@ -45,7 +44,7 @@
 
   <section id="FreeApartmentList">
     <div class="container">
-      <h2>Aktuell verfügbare Wohnungen</h2>
+      <h2>{{ T "availableApartments" }}</h2>
       {{ with .Site.GetPage "/apartments" }}
         {{ $availCollection := where .Pages ".Params.available" "eq" true }}
         {{ if gt ($availCollection |len) 0 }}
@@ -53,9 +52,10 @@
             {{ partial "apartmentListItem" . }}
           {{ end }}
         {{ else }}
-          <p>Keine Wohnungen verfügbar.</p>
+          <p>{{ T "noApartmentsAvailable" }}</p>
         {{ end }}
       {{ end }}
     </div>
   </section>
+  <div class="container"><br />{{ partial "contactUsButton" . }}</div>
 {{ end }}
